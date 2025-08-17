@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SettingsFragment">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/settingBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:navigationIcon="@drawable/back_button"
+        android:padding="10dp" />
+<!--    maybe button should be a bit more lower?-->
+
+
+            <!-- Header -->
+            <TextView
+                android:id="@+id/settingHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Personal Details"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:padding="16dp"/>
+
+            <!-- First Name setting -->
+            <TextView
+                android:id="@+id/firstNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text=" First Name:"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingStart="16dp"/>
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background" />
+
+            <!-- Last Name setting -->
+            <TextView
+                android:id="@+id/lastNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text=" Last Name:"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:paddingStart="16dp"/>
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background" />
+
+            <!-- Header -->
+            <TextView
+                android:id="@+id/settingHeader2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Preference"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:padding="16dp"/>
+
+    <!-- helps the push notifications look better -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="16dp">
+
+        <!-- Notification Preference -->
+        <!-- Setting the width to 0dp will allow the constraints to leave space accordingly-->
+        <TextView
+            android:id="@+id/pushNotifLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Push Notifications"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:padding="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/pushNotif"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/pushNotif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pushNotifLabel"
+            app:layout_constraintBottom_toBottomOf="@id/pushNotifLabel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- Confirm Changes Button -->
+            <Button
+                android:id="@+id/confirmButton"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Confirm"
+                android:textSize="18sp"
+                app:cornerRadius="20dp" />
+
+</LinearLayout>

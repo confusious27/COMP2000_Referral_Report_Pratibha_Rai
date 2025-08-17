@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".UserProfileFragment">
+
+    <!-- Profile Picture -->
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="190dp"
+        android:layout_centerHorizontal="true"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <!-- Edit Button -->
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/profilePicture"
+        android:layout_centerHorizontal="true"
+        android:text="Edit"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+    <!-- Edit Button -->
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_below="@+id/editButton"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Log Out"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+
+    <!-- Bottom Nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/brown"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/icon_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu" />
+
+
+</RelativeLayout>

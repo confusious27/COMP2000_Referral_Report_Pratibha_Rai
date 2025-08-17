@@ -1,0 +1,99 @@
+package com.example.comp2000referral;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
+
+import org.json.JSONObject;
+
+public class LoginFragment extends Fragment {
+
+    EditText email;
+    EditText password;
+    Button loginButton;
+    TextView forgotPass;
+    TextView signupRedirect;
+
+    //tells android to use the xml for the ui
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                              Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_login, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+            // views by ID
+            email = view.findViewById(R.id.emailAddress);
+            password = view.findViewById(R.id.password);
+            loginButton = view.findViewById(R.id.loginButton);
+            forgotPass = view.findViewById(R.id.forgotPass);
+            signupRedirect = view.findViewById(R.id.signupRedirect);
+
+            // login button
+            loginButton.setOnClickListener(v -> {
+                String emailInput = email.getText().toString();
+                if (emailInput.isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter email", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                APIClient.get("members/" + emailInput, new APIClient.ApiCallback() {
+                    @Override
+                    public void onSuccess(String result) {
+                        try {
+                            JSONObject json = new JSONObject(result);
+                            String role = json.getString("role");
+
+                            if (role.equals("admin")) {
+                                Intent intent = new Intent(getActivity(), MainActivity.class);
+                                intent.putExtra("userType", "admin");
+                                startActivity(intent);
+                                getActivity().finish(); //closes activity after successful login so user's can't press back to return to login
+                            } else if (role.equals("user")) {
+                                Intent intent = new Intent(getActivity(), MainActivity.class);
+                                intent.putExtra("userType", "user");
+                                startActivity(intent);
+                                getActivity().finish();
+                            }
+
+                        } catch (Exception e) {
+                            Toast.makeText(getContext(), "Invalid response from server", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Toast.makeText(getContext(), "Login failed: User not found", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            });
+
+            // redirects to forget password
+            forgotPass.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), ForgetActivity.class);
+                startActivity(intent);
+            });
+
+            // redirects to sign up
+            signupRedirect.setOnClickListener(v -> {
+                Intent intent = new Intent(getActivity(), SignupActivity.class);
+                startActivity(intent);
+            });
+
+        }
+    }
+

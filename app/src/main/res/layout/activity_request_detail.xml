@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adminRequest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/bookBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:navigationIcon="@drawable/back_button"
+        android:paddingTop="8dp" />
+
+    <TextView
+        android:id="@+id/bookTitleAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Book Title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/requesterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Requested by"
+        android:textSize="20dp"
+        android:layout_marginBottom="30dp"/>
+
+    <!-- Accept Button -->
+    <Button
+        android:id="@+id/acceptButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Accept"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+    <!-- shud make it green -->
+
+    <!-- Decline Button -->
+    <Button
+        android:id="@+id/declineButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Decline"
+        android:textSize="18sp"
+        app:cornerRadius="20dp" />
+    <!-- shud make it red plus keep buttons together -->
+
+
+</LinearLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/adminBooks"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AdminBookFragment">
+
+    <!-- Scroll view for the books -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/adminBooksView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomNavAdmin"
+        android:layout_marginBottom="9dp"
+        android:clipToPadding="false"
+        android:padding="20dp"
+        tools:listitem="@layout/book_items" />
+
+    <!-- Bottom Nav -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/brown"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/icon_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu_admin" />
+
+    <!-- Add button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="100dp"
+        android:src="@android:drawable/ic_input_add" />
+
+</LinearLayout>

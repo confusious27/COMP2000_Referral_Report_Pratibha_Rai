@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottom_admin_books"
+        android:icon="@drawable/admin_books"
+        android:title="Catalogue" />
+
+    <item
+        android:id="@+id/bottom_admin_members"
+        android:icon="@drawable/admin_members"
+        android:title="Members" />
+
+    <item
+        android:id="@+id/bottom_admin_requests"
+        android:icon="@drawable/admin_request"
+        android:title="Requests" />
+
+</menu>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/requestItems"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Requests -->
+    <TextView
+        android:id="@+id/requestBooks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Book Title"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Requested by -->
+    <TextView
+        android:id="@+id/requestedBy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Requested by:"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="18sp" />
+
+</LinearLayout>
