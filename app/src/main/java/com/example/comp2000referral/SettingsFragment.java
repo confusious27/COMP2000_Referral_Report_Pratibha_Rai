@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
+// USER
 public class SettingsFragment extends Fragment {
     //tells android to use the xml for the ui
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

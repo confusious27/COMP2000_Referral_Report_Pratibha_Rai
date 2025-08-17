@@ -1,4 +1,8 @@
 package com.example.comp2000referral;
 
-public class MembersDetailFragment {
+import androidx.fragment.app.Fragment;
+
+// ADMIN
+public class MembersDetailFragment extends Fragment {
+    WERWR
 }

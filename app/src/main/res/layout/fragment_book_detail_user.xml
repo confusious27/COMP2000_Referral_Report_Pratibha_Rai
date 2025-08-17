@@ -59,7 +59,7 @@
                 android:id="@+id/requestButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Edit Book"
+                android:text="Request Book"
                 android:backgroundTint="@color/brown"
                 android:textColor="@android:color/white" />
 

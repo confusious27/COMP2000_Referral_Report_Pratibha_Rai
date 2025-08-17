@@ -8,16 +8,18 @@
     android:orientation="vertical"
     tools:context=".SettingsFragment">
 
-    <!-- Toolbar -->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/settingBar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:navigationIcon="@drawable/back_button"
-        android:padding="10dp" />
-<!--    maybe button should be a bit more lower?-->
+<!-- USER -->
+
+<!--    &lt;!&ndash; Toolbar &ndash;&gt;-->
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/settingBar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:elevation="4dp"-->
+<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+<!--        app:navigationIcon="@drawable/back_button"-->
+<!--        android:padding="10dp" />-->
+<!--&lt;!&ndash;    maybe button should be a bit more lower?&ndash;&gt;-->
 
 
             <!-- Header -->

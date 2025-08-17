@@ -4,5 +4,7 @@ import androidx.fragment.app.Fragment;
 
 // For admin catalogue (shud rename)
 public class CatalogueFragment extends Fragment {
-    public CatalogueFragment() { super(R.layout.fragment_catalogue); }
+    public CatalogueFragment() { super(R.layout.fragment_catalogue);
+
+    }
 }

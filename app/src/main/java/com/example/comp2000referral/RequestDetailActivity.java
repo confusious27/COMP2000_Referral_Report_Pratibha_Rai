@@ -5,6 +5,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+// ADMIN
 public class RequestDetailActivity extends AppCompatActivity {
 
     TextView bookTitleView;

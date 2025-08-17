@@ -9,7 +9,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import com.example.comp2000referral.ForgetActivity;
+import com.example.comp2000referral.SignupActivity;
+import com.example.comp2000referral.BookDetailFragment;
+import com.example.comp2000referral.SettingsFragment;
 
+// USER
 public class BookDetailFragment extends Fragment {
 
     TextView titleView;
@@ -50,18 +55,18 @@ public class BookDetailFragment extends Fragment {
             String author = args.getString("author");
             String description = args.getString("description");
 
-        titleView.setText(title);
-        authorView.setText(author);
-        descriptionView.setText(description);
+            titleView.setText(title);
+            authorView.setText(author);
+            descriptionView.setText(description);
 
-        requestButton.setOnClickListener(v ->
-                Toast.makeText(getContext(),
-                        "Request sent for \"" + title + "\"", Toast.LENGTH_SHORT).show());
-
+            requestButton.setOnClickListener(v ->
+                    Toast.makeText(getContext(),
+                            "Request sent for \"" + title + "\"", Toast.LENGTH_SHORT).show());
 
             //  show the toolbar with back button
-        if (getActivity() instanceof MainActivity) {
-            ((MainActivity) getActivity()).showToolbar("Request Book");
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).showToolbar("Request Book");
+            }
         }
     }
 

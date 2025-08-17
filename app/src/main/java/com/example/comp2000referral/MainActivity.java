@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 ||currentFragment instanceof AdminBookDetailFragment
                 ||currentFragment instanceof AdminMembersFragment
                 ||currentFragment instanceof MembersDetailFragment
-                ||currentFragment instanceof AddMemberFragment
+                ||currentFragment instanceof AddMemberFragment) {
 
                 //members detail screen + edit members + add members
                 //requests detail) {

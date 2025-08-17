@@ -8,6 +8,8 @@
     android:orientation="vertical"
     tools:context=".AdminBookFragment">
 
+<!-- ADMIN -->
+
     <!-- Scroll view for the books -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/adminBooksView"
