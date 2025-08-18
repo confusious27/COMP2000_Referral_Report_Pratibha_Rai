@@ -11,23 +11,9 @@
         android:id="@+id/adminRequestsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNavAdmin"
         android:clipToPadding="false"
         android:padding="20dp"
         tools:listitem="@layout/request_items" />
-
-    <!-- Bottom Nav -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavAdmin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/brown"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@color/icon_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_menu_admin" />
 
     <!-- Add button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -37,7 +23,9 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="40dp"
-        android:layout_marginBottom="100dp"
-        android:src="@android:drawable/ic_input_add" />
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/add_plus"
+        android:backgroundTint="@color/brown"
+        app:tint="@null"/>
 
 </RelativeLayout>

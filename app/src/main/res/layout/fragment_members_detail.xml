@@ -8,16 +8,6 @@
 
 <!-- ADMIN -->
 
-<!--    &lt;!&ndash; Toolbar &ndash;&gt;-->
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/memberBar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:elevation="4dp"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--        app:navigationIcon="@drawable/back_button"-->
-<!--        android:paddingTop="8dp" />-->
-
     <!-- Scrollview in case -->
     <ScrollView
         android:layout_width="match_parent"
@@ -35,10 +25,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Personal Details"
+                android:text="@string/details"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:padding="16dp"/>
+                android:padding="16dp"
+                android:textColor="@color/black"/>
 
             <!-- First Name setting -->
             <TextView
@@ -46,10 +37,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text=" First Name:"
+                android:layout_marginBottom="20dp"
+                android:text="@string/first"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/firstName"
@@ -58,7 +51,8 @@
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <!-- Last Name setting -->
             <TextView
@@ -66,10 +60,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text=" Last Name:"
+                android:layout_marginBottom="20dp"
+                android:text="@string/last"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/lastName"
@@ -78,14 +74,18 @@
                 android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <Button
                 android:id="@+id/confirmMembers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Confirm"
-                android:backgroundTint="@color/brown"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/confirm"
+                app:cornerRadius="20dp"
+                android:backgroundTint="@color/green"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

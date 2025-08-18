@@ -26,10 +26,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="First Name:"
-                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/first"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/firstNameText"
@@ -37,17 +39,20 @@
                 android:layout_height="50dp"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <TextView
                 android:id="@+id/lastNameAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Last Name:"
-                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/last"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/lastNameText"
@@ -55,32 +60,37 @@
                 android:layout_height="50dp"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <TextView
                 android:id="@+id/emailAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:text="Email:"
-                android:textSize="20sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/emailAddText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:padding="8dp"
+                android:layout_marginBottom="10dp"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <Button
                 android:id="@+id/addMemButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add"
+                android:text="@string/add"
                 android:backgroundTint="@color/brown"
                 android:textColor="@android:color/white" />
 

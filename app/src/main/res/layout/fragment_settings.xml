@@ -10,25 +10,13 @@
 
 <!-- USER -->
 
-<!--    &lt;!&ndash; Toolbar &ndash;&gt;-->
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/settingBar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:elevation="4dp"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--        app:navigationIcon="@drawable/back_button"-->
-<!--        android:padding="10dp" />-->
-<!--&lt;!&ndash;    maybe button should be a bit more lower?&ndash;&gt;-->
-
-
             <!-- Header -->
             <TextView
                 android:id="@+id/settingHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Personal Details"
+                android:text="@string/details"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:padding="16dp"/>
@@ -39,8 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text=" First Name:"
-                android:textSize="25sp"
+                android:text="@string/first"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:paddingStart="16dp"/>
 
@@ -59,8 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text=" Last Name:"
-                android:textSize="25sp"
+                android:text="@string/last"
+                android:textSize="24sp"
                 android:textStyle="bold"
                 android:paddingStart="16dp"/>
 
@@ -79,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Preference"
+                android:text="@string/preference"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:padding="16dp"/>
@@ -98,10 +86,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Push Notifications"
+            android:text="@string/notif"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:padding="16dp"
+            android:padding="1dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/pushNotif"
             app:layout_constraintTop_toTopOf="parent"
@@ -124,8 +112,9 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Confirm"
+                android:text="@string/confirm"
                 android:textSize="18sp"
-                app:cornerRadius="20dp" />
+                app:cornerRadius="20dp"
+                android:backgroundTint="@color/green"/>
 
 </LinearLayout>

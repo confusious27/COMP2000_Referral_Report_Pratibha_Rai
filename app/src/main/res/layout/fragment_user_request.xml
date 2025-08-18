@@ -12,24 +12,9 @@
         android:id="@+id/requestsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottomNavigationRequests"        android:layout_marginBottom="9dp"
+        android:layout_marginBottom="9dp"
         android:clipToPadding="false"
         android:padding="20dp"
         tools:listitem="@layout/request_items"/>
-
-    <!-- Bottom Nav -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationRequests"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/brown"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@color/icon_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_menu" />
-
-
 
 </RelativeLayout>

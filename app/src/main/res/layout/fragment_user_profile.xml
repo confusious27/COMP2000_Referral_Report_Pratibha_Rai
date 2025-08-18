@@ -25,9 +25,10 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/profilePicture"
         android:layout_centerHorizontal="true"
-        android:text="Edit"
+        android:text="@string/edit"
         android:textSize="18sp"
-        app:cornerRadius="20dp" />
+        app:cornerRadius="20dp"
+        android:backgroundTint="@color/brown"/>
 
     <!-- Edit Button -->
     <Button
@@ -37,22 +38,9 @@
         android:layout_below="@+id/editButton"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
-        android:text="Log Out"
+        android:text="@string/logout"
         android:textSize="18sp"
-        app:cornerRadius="20dp" />
-
-    <!-- Bottom Nav -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationBook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/brown"
-        app:itemIconSize="30dp"
-        app:itemIconTint="@color/icon_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_menu" />
-
+        app:cornerRadius="20dp"
+        android:backgroundTint="@color/red"/>
 
 </RelativeLayout>

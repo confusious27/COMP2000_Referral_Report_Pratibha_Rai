@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">COMP2000Referral</string>
+
+<!--  Login  -->
+    <string name="login"><font color = "#000000">Login</font></string>
+    <string name="loginButton"><font color = "#FFFFFF">Login</font></string>
+    <string name="forgot"><u>Forgot password?</u></string>
+    <string name="signup"><u>Not signed up? Join our fun book club!</u></string>
+
+<!--  Sign Up  -->
+    <string name="signupText"><font color = "#000000">Sign Up</font></string>
+    <string name="signupButton">Sign Up</string>
+    <string name="redirect"><u>Already a user? Login!</u></string>
+
+<!--  Forgot  -->
+    <string name="forgotPass">Forgot Password?</string>
+    <string name="verify">Verify</string>
+
+<!--  Profile  -->
+    <string name="edit">Edit</string>
+    <string name="logout">Log Out</string>
+
+<!--  Setting  -->
+    <string name="details">Personal Details</string>
+    <string name="first">First Name:</string>
+    <string name="last">Last Name:</string>
+    <string name="preference">Preference</string>
+    <string name="notif">Push Notifications</string>
+    <string name="confirm">Confirm</string>
+
+<!--  Books  -->
+    <string name="author">Author:</string>
+    <string name="desc">Description:</string>
+    <string name="delete">Delete</string>
+
+<!--  Admin Request  -->
+    <string name="title">Book Title:</string>
+    <string name="request">Requested by:</string>
+    <string name="accept">Accept</string>
+    <string name="decline">Decline</string>
+
+<!--  Book Detail  -->
+    <string name="Title">Book Title</string>
+    <string name="Author">Author</string>
+    <string name="Description">Description</string>
+    <string name="add">Add</string>
+
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
+    <string name="confirmPass">Confirm Password</string>
+    <string name="enterE">Enter Email</string>
+
 </resources>

@@ -47,30 +47,51 @@ public class LoginFragment extends Fragment {
                     Toast.makeText(getContext(), "Please enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                String passwordInput = password.getText().toString();
+                if (passwordInput.isEmpty()) {
+                    Toast.makeText(getContext(), "Please enter your password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                APIClient.get("members/" + emailInput, new APIClient.ApiCallback() {
-                    @Override
-                    public void onSuccess(String result) {
-                        try {
-                            JSONObject json = new JSONObject(result);
-                            String role = json.getString("role");
-
-                            // calls the activity method to proceed after the login
-                            if (getActivity() instanceof MainActivity) {
-                                ((MainActivity) getActivity()).onLoginSuccess(role);
-                            }
-
-                        } catch (Exception e) {
-                            Toast.makeText(getContext(), "Invalid response from server", Toast.LENGTH_SHORT).show();
-                        }
+                // testing
+                if (emailInput.equals("user@example.com") && passwordInput.equals("1234")) {
+                    // Normal user login
+                    if (getActivity() instanceof MainActivity) {
+                        ((MainActivity) getActivity()).onLoginSuccess("user");
                     }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Toast.makeText(getContext(), "Login failed: User not found", Toast.LENGTH_SHORT).show();
+                } else if (emailInput.equals("admin@example.com") && passwordInput.equals("admin")) {
+                    // Admin login
+                    if (getActivity() instanceof MainActivity) {
+                        ((MainActivity) getActivity()).onLoginSuccess("admin");
                     }
-                });
+                } else {
+                    Toast.makeText(getContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
+                }
             });
+
+//                APIClient.get("members/" + emailInput, new APIClient.ApiCallback() {
+//                    @Override
+//                    public void onSuccess(String result) {
+//                        try {
+//                            JSONObject json = new JSONObject(result);
+//                            String role = json.getString("role");
+//
+//                            // calls the activity method to proceed after the login
+//                            if (getActivity() instanceof MainActivity) {
+//                                ((MainActivity) getActivity()).onLoginSuccess(role);
+//                            }
+//
+//                        } catch (Exception e) {
+//                            Toast.makeText(getContext(), "Invalid response from server", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(Exception e) {
+//                        Toast.makeText(getContext(), "Login failed: User not found", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//            });
 
             // redirects to forget password
             forgotPass.setOnClickListener(v -> {

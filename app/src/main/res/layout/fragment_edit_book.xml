@@ -7,15 +7,6 @@
     android:padding="20dp">
 
 <!-- ADMIN -->
-<!--    &lt;!&ndash; Toolbar &ndash;&gt;-->
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/bookBar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="?attr/actionBarSize"-->
-<!--        android:elevation="4dp"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--        app:navigationIcon="@drawable/back_button"-->
-<!--        android:paddingTop="8dp" />-->
 
     <!-- to scroll in case description is long -->
     <ScrollView
@@ -35,10 +26,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Book Title:"
-                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/title"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/titleEdit"
@@ -46,17 +39,20 @@
                 android:layout_height="50dp"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <TextView
                 android:id="@+id/bookAuthorEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Author:"
-                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/author"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/authorEdit"
@@ -64,17 +60,20 @@
                 android:layout_height="50dp"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <TextView
                 android:id="@+id/bookDescEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Description:"
-                android:textSize="20sp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/desc"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                android:paddingStart="16dp"/>
+                android:paddingStart="16dp"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/descEdit"
@@ -82,22 +81,25 @@
                 android:layout_height="50dp"
                 android:padding="8dp"
                 android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+                android:textColorHighlight="@color/cardview_dark_background"
+                android:background="@drawable/edittext_border"/>
 
             <Button
                 android:id="@+id/confirmEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Confirm"
-                android:backgroundTint="@color/brown"
+                android:layout_marginTop="30dp"
+                android:text="@string/confirm"
+                android:backgroundTint="@color/green"
                 android:textColor="@android:color/white" />
 
             <Button
                 android:id="@+id/confirmDelete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Delete"
-                android:backgroundTint="#D10D0D"
+                android:layout_marginTop="30dp"
+                android:text="@string/delete"
+                android:backgroundTint="@color/red"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

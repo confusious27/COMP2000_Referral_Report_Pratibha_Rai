@@ -31,10 +31,11 @@
         android:id="@+id/forgetText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="@string/forgotPass"
         android:textAlignment="center"
         android:textSize="36sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
 
     <!-- Email -->
     <EditText
@@ -42,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:hint="Enter Email"
+        android:hint="@string/enterE"
         android:inputType="textEmailAddress"
         android:padding="8dp"
         android:textColor="@color/black"
@@ -55,8 +56,9 @@
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:layout_gravity="center_horizontal"
-        android:text="Verify"
+        android:text="@string/verify"
         android:textSize="18sp"
-        app:cornerRadius="20dp" />
+        app:cornerRadius="20dp"
+        android:backgroundTint="@color/green"/>
 
 </LinearLayout>
