@@ -1,6 +1,5 @@
 package com.example.comp2000referral;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,9 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.comp2000referral.adapters.BookAdapter;
+import com.example.comp2000referral.models.Book;
 
 import java.util.ArrayList;
 import java.util.List;

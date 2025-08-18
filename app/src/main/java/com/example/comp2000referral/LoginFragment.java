@@ -10,10 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 
 import org.json.JSONObject;
@@ -58,16 +55,9 @@ public class LoginFragment extends Fragment {
                             JSONObject json = new JSONObject(result);
                             String role = json.getString("role");
 
-                            if (role.equals("admin")) {
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
-                                intent.putExtra("userType", "admin");
-                                startActivity(intent);
-                                getActivity().finish(); //closes activity after successful login so user's can't press back to return to login
-                            } else if (role.equals("user")) {
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
-                                intent.putExtra("userType", "user");
-                                startActivity(intent);
-                                getActivity().finish();
+                            // calls the activity method to proceed after the login
+                            if (getActivity() instanceof MainActivity) {
+                                ((MainActivity) getActivity()).onLoginSuccess(role);
                             }
 
                         } catch (Exception e) {
@@ -84,13 +74,13 @@ public class LoginFragment extends Fragment {
 
             // redirects to forget password
             forgotPass.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), ForgetActivity.class);
+                Intent intent = new Intent(getActivity(), ForgetFragment.class);
                 startActivity(intent);
             });
 
             // redirects to sign up
             signupRedirect.setOnClickListener(v -> {
-                Intent intent = new Intent(getActivity(), SignupActivity.class);
+                Intent intent = new Intent(getActivity(), SignupFragment.class);
                 startActivity(intent);
             });
 

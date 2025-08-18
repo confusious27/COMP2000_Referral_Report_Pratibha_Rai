@@ -9,10 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
-import com.example.comp2000referral.ForgetActivity;
-import com.example.comp2000referral.SignupActivity;
-import com.example.comp2000referral.BookDetailFragment;
-import com.example.comp2000referral.SettingsFragment;
 
 // USER
 public class BookDetailFragment extends Fragment {
@@ -65,7 +61,7 @@ public class BookDetailFragment extends Fragment {
 
             //  show the toolbar with back button
             if (getActivity() instanceof MainActivity) {
-                ((MainActivity) getActivity()).showToolbar("Request Book");
+                ((MainActivity) getActivity()).showToolbar();
             }
         }
     }

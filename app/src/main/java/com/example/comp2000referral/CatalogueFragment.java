@@ -6,5 +6,6 @@ import androidx.fragment.app.Fragment;
 public class CatalogueFragment extends Fragment {
     public CatalogueFragment() { super(R.layout.fragment_catalogue);
 
+        //DOESNT CONNECT TO ANYTHING...i think
     }
 }
