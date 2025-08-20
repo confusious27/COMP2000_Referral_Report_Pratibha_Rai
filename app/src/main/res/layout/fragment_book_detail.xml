@@ -29,7 +29,6 @@
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
-/>
 
             <TextView
                 android:id="@+id/bookAuthor"

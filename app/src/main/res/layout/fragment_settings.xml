@@ -10,73 +10,92 @@
 
 <!-- USER -->
 
-            <!-- Header -->
-            <TextView
-                android:id="@+id/settingHeader"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/details"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:padding="16dp"/>
+    <!-- Header -->
+    <TextView
+        android:id="@+id/settingHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/details"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:textColor="@color/black"/>
 
-            <!-- First Name setting -->
-            <TextView
-                android:id="@+id/firstNameText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/first"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:paddingStart="16dp"/>
+    <!-- First Name setting -->
+    <TextView
+        android:id="@+id/firstNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/first"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingStart="16dp"
+        android:textColor="@color/black"/>
 
-            <EditText
-                android:id="@+id/firstName"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="textPersonName"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/cardview_dark_background"
+        android:background="@drawable/edittext_border"/>
 
-            <!-- Last Name setting -->
-            <TextView
-                android:id="@+id/lastNameText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/last"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:paddingStart="16dp"/>
+    <!-- Last Name setting -->
+    <TextView
+        android:id="@+id/lastNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/last"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingStart="16dp"
+        android:textColor="@color/black"/>
 
-            <EditText
-                android:id="@+id/lastName"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:inputType="textPersonName"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textColor="@color/black"
+        android:textColorHighlight="@color/cardview_dark_background"
+        android:background="@drawable/edittext_border"/>
 
-            <!-- Header -->
-            <TextView
-                android:id="@+id/settingHeader2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/preference"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:padding="16dp"/>
+    <!-- Confirm Changes Button -->
+    <Button
+        android:id="@+id/confirmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/confirm"
+        android:textSize="18sp"
+        app:cornerRadius="20dp"
+        android:backgroundTint="@color/green"/>
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/settingHeader2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/preference"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:textColor="@color/black"/>
 
     <!-- helps the push notifications look better -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:padding="16dp">
 
         <!-- Notification Preference -->
@@ -85,11 +104,11 @@
             android:id="@+id/pushNotifLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="@string/notif"
             android:textSize="30sp"
             android:textStyle="bold"
             android:padding="1dp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/pushNotif"
             app:layout_constraintTop_toTopOf="parent"
@@ -103,18 +122,5 @@
             app:layout_constraintTop_toTopOf="@id/pushNotifLabel"
             app:layout_constraintBottom_toBottomOf="@id/pushNotifLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <!-- Confirm Changes Button -->
-            <Button
-                android:id="@+id/confirmButton"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/confirm"
-                android:textSize="18sp"
-                app:cornerRadius="20dp"
-                android:backgroundTint="@color/green"/>
 
 </LinearLayout>

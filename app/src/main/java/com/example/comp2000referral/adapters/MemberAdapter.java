@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+//import com.bumptech.glide.Glide;
 import com.example.comp2000referral.R;
 import com.example.comp2000referral.models.Member;
 
@@ -29,12 +29,10 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
     }
 
     public static class MemberViewHolder extends RecyclerView.ViewHolder {
-        ImageView profilePicture;
         TextView memberName;
 
         public MemberViewHolder(View itemView) {
             super(itemView);
-            profilePicture = itemView.findViewById(R.id.profilePicture);
             memberName = itemView.findViewById(R.id.memberName);
         }
     }
@@ -48,14 +46,13 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
     @Override
     public void onBindViewHolder(MemberViewHolder holder, int position) {
         final Member member = memberList.get(position);
+        holder.memberName.setText(member.getUsername());
 
-        holder.memberName.setText(member.getName());
-
-        // for the profile picture
-        Glide.with(context)
-                .load(member.getProfileUrl())
-                .placeholder(R.drawable.profile_placeholder)
-                .into(holder.profilePicture);
+//        // for the profile picture
+//        Glide.with(context)
+//                .load(member.getProfileUrl())
+//                .placeholder(R.drawable.profile_placeholder)
+//                .into(holder.profilePicture);
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {

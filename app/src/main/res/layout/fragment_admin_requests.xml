@@ -12,20 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:padding="20dp"
+        android:padding="9dp"
         tools:listitem="@layout/request_items" />
-
-    <!-- Add button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="50dp"
-        android:src="@drawable/add_plus"
-        android:backgroundTint="@color/brown"
-        app:tint="@null"/>
 
 </RelativeLayout>

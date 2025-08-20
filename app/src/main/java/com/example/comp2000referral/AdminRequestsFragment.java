@@ -33,14 +33,40 @@ public class AdminRequestsFragment extends Fragment {
         recyclerView = view.findViewById(R.id.adminRequestsView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        // loads requests from SharedPreferences
+        UserRequestManager manager = new UserRequestManager(requireContext());
+        List<UserRequest> allRequests = manager.getRequests();
+
+        // changes user request to request list
         requestList = new ArrayList<>();
-        requestList.add(new Request("The Hobbit", "John Doe"));
-        requestList.add(new Request("1984", "Jane Smith"));
-        requestList.add(new Request("Brave New World", "Alice Johnson"));
+        for (UserRequest ur : allRequests) {
+            requestList.add(new Request(ur.getBookTitle(), ur.getRequestedBy(), ur.getStatus()));
+        }
 
         adapter = new AdminRequestAdapter(getContext(), requestList);
         recyclerView.setAdapter(adapter);
 
         return view;
+
     }
+
+    // refreshes list after performing action
+    @Override
+    public void onResume() {
+        super.onResume();
+        reloadAdminRequests();
+    }
+
+    public void reloadAdminRequests() {
+        UserRequestManager manager = new UserRequestManager(requireContext());
+        List<UserRequest> allRequests = manager.getRequests();
+
+        requestList.clear(); // clears old data
+        for (UserRequest ur : allRequests) {
+            requestList.add(new Request(ur.getBookTitle(), ur.getRequestedBy(), ur.getStatus()));
+        }
+
+        adapter.notifyDataSetChanged(); // refreshes UI
+    }
+
 }

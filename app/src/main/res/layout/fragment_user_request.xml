@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="9dp"
         android:clipToPadding="false"
-        android:padding="20dp"
-        tools:listitem="@layout/request_items"/>
+        tools:listitem="@layout/request_items_user"/>
 
 </RelativeLayout>

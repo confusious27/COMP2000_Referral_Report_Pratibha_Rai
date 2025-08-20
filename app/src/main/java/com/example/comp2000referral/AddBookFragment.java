@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.comp2000referral.models.Book;
+
 // ADMIN
 public class AddBookFragment extends Fragment {
 
@@ -41,6 +43,9 @@ public class AddBookFragment extends Fragment {
             if (title.isEmpty() || author.isEmpty() || description.isEmpty()) {
                 Toast.makeText(getContext(), "All fields are required", Toast.LENGTH_SHORT).show();
             } else {
+                // saves new book
+                Book newBook = new Book(title, author, description); BookManager.addBook(getContext(), newBook);
+
                 Toast.makeText(getContext(), "Book added successfully!", Toast.LENGTH_SHORT).show();
                 // returns to previous screen
                 if (getActivity() != null) {

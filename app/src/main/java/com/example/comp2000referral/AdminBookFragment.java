@@ -35,46 +35,43 @@ public class AdminBookFragment extends Fragment {
         recyclerView = view.findViewById(R.id.booksView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // help fragment get book list and adapter
-        // sample books
-        bookList = new ArrayList<>();
-        bookList.add(new Book("1984", "George Orwell", "A dystopian novel about surveillance."));
-        bookList.add(new Book("Brave New World", "Aldous Huxley", "A futuristic society based on control."));
+        // loads books from SharedPreferences
+        bookList = BookManager.getBooks(getContext());
 
-        // registers the result
-        editBookLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-                        String deletedTitle = result.getData().getStringExtra("deletedTitle");
+        // ✅ Seed sample books if list is empty (first launch)
+        if (bookList.isEmpty()) {
+            bookList.add(new Book("1984", "George Orwell", "A dystopian novel about surveillance."));
+            bookList.add(new Book("Brave New World", "Aldous Huxley", "A futuristic society based on control."));
+            bookList.add(new Book("Fahrenheit 451", "Ray Bradbury", "A world where books are outlawed."));
+            bookList.add(new Book("Omniscient Reader's Viewpoint", "SingShong", "Kim Dokja finds himself inside his favourite web novel."));
+            BookManager.updateBooks(getContext(), bookList);
+        }
 
-                        for (int i = 0; i < bookList.size(); i++) {
-                            if (bookList.get(i).getTitle().equals(deletedTitle)) {
-                                bookList.remove(i);
-                                adapter.notifyItemRemoved(i);
-                                break;
-                            }
-                        }
-                    }
-                }
-        );
-
-
-
-        // passes the click listener to the adapter
+        // passes the click listener to the , also helps with the admin check (so user cannot edit/delete)
         adapter = new BookAdapter(getContext(), bookList, true, book -> {
-            Intent intent = new Intent(getContext(), AdminBookDetailFragment.class);
-            intent.putExtra("title", book.getTitle());
-            intent.putExtra("author", book.getAuthor());
-            intent.putExtra("description", book.getDescription());
-            editBookLauncher.launch(intent);
+            AdminBookDetailFragment fragment = AdminBookDetailFragment.newInstance(
+                    book.getTitle(),
+                    book.getAuthor(),
+                    book.getDescription()
+            );
+
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainer, fragment)
+                    .addToBackStack(null)
+                    .commit();
+
         });
         recyclerView.setAdapter(adapter);
 
         addBookButton = view.findViewById(R.id.addBook);
         addBookButton.setOnClickListener(v -> {
-            Intent intent = new Intent(getContext(), AddBookFragment.class);
-            startActivity(intent);
+            AddBookFragment addBookFragment = new AddBookFragment();
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainer, addBookFragment)
+                    .addToBackStack(null)
+                    .commit();
         });
 
         return view;

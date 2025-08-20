@@ -1,5 +1,7 @@
 package com.example.comp2000referral;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,9 +57,31 @@ public class BookDetailFragment extends Fragment {
             authorView.setText(author);
             descriptionView.setText(description);
 
-            requestButton.setOnClickListener(v ->
+            requestButton.setOnClickListener(v -> {
+                if (getContext() == null) return;
+
+                // initializes it
+                UserRequestManager manager = new UserRequestManager(getContext());
+
+                if (manager.hasRequested(title)) {
                     Toast.makeText(getContext(),
-                            "Request sent for \"" + title + "\"", Toast.LENGTH_SHORT).show());
+                            "You've already requested \"" + title + "\"",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+
+                    SharedPreferences prefs =  requireContext().getSharedPreferences("test_users", Context.MODE_PRIVATE);
+                    String username = prefs.getString("logged_in_user", "Unknown"); // this assumes you requested it on this login
+
+                    // create new request with "Pending" status
+                    UserRequest newRequest = new UserRequest(title, "Pending", username);
+                    manager.addRequest(newRequest);
+
+                    // Notify admin - for now just show a toast
+                    Toast.makeText(getContext(),
+                            "Request sent for \"" + title + "\"", Toast.LENGTH_SHORT).show();
+
+                }
+            });
 
             //  show the toolbar with back button
             if (getActivity() instanceof MainActivity) {

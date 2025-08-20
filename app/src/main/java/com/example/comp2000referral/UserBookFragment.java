@@ -47,16 +47,10 @@ public class UserBookFragment extends Fragment {
         recyclerView = view.findViewById(R.id.booksView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // sample books
         bookList = new ArrayList<>();
-        bookList.add(new Book("1984", "George Orwell", "A dystopian novel about surveillance."));
-        bookList.add(new Book("Brave New World", "Aldous Huxley", "A futuristic society based on control."));
-        bookList.add(new Book("Fahrenheit 451", "Ray Bradbury", "A world where books are outlawed."));
-        bookList.add(new Book("Omniscient Reader's Viewpoint", "SingShong", "Kim Dokja finds himself inside his favourite web novel 'Three Ways to Survive the Apocalypse'."));
 
         adapter = new BookAdapter(getContext(), bookList, false, this::onBookClicked);
         recyclerView.setAdapter(adapter);
 
     }
-
-    }
+ }

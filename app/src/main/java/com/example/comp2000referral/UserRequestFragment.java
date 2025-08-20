@@ -29,11 +29,15 @@ public class UserRequestFragment extends Fragment {
         recyclerView = view.findViewById(R.id.requestsView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Dummy data
-        requestList = new ArrayList<>();
-        requestList.add(new UserRequest("The Hobbit", "Accepted"));
-        requestList.add(new UserRequest("1984", "Declined"));
-        requestList.add(new UserRequest("Brave New World", "Pending"));
+//        // Dummy data
+//        requestList = new ArrayList<>();
+//        requestList.add(new UserRequest("The Hobbit", "Accepted"));
+//        requestList.add(new UserRequest("1984", "Declined"));
+//        requestList.add(new UserRequest("Brave New World", "Pending"));
+
+        // loads real saved requests
+        UserRequestManager manager = new UserRequestManager(requireContext());
+        requestList = manager.getRequests();
 
         adapter = new UserRequestAdapter(getContext(), requestList);
         recyclerView.setAdapter(adapter);

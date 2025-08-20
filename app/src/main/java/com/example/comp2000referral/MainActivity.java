@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        UserRequestManager manager = new UserRequestManager(this);
+//        manager.clearRequests();
+
         userType = getIntent().getStringExtra("userType"); //gets the user type from login
         bottomNavigationView = findViewById(R.id.bottomNavigation);
         topBar = findViewById(R.id.topBar);
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 || currentFragment instanceof AddBookFragment
                 || currentFragment instanceof AdminBookDetailFragment
                 || currentFragment instanceof AdminMembersFragment
-                || currentFragment instanceof MembersDetailFragment
+                || currentFragment instanceof EditMembersFragment
                 || currentFragment instanceof AddMemberFragment
                 || currentFragment instanceof RequestDetailFragment) {
 
@@ -157,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
 
         }
+
     }
 
 }

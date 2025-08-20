@@ -6,9 +6,9 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <!-- ADMIN -->
+<!-- ADMIN -->
 
-    <!-- to scroll in case description is long -->
+    <!-- Scrollview in case -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,101 +20,128 @@
             android:layout_height= "wrap_content"
             android:orientation="vertical">
 
-            <!-- Editing -->
             <TextView
-                android:id="@+id/firstNameAdd"
+                android:id="@+id/settingHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/details"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:padding="16dp"
+                android:textColor="@color/black"/>
+
+            <!-- First Name setting -->
+            <TextView
+                android:id="@+id/firstNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/first"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:paddingStart="16dp"
                 android:textColor="@color/black"/>
 
             <EditText
-                android:id="@+id/firstNameText"
+                android:id="@+id/firstName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:background="@drawable/edittext_border"/>
 
+            <!-- Last Name setting -->
             <TextView
-                android:id="@+id/lastNameAdd"
+                android:id="@+id/lastNameText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="@string/last"
-                android:textSize="30sp"
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:paddingStart="16dp"
                 android:textColor="@color/black"/>
 
             <EditText
-                android:id="@+id/lastNameText"
+                android:id="@+id/lastName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:inputType="textPersonName"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:background="@drawable/edittext_border"/>
 
+            <!-- Email setting -->
             <TextView
-                android:id="@+id/emailAdd"
+                android:id="@+id/emailText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="Email:"
-                android:textSize="30sp"
+                android:text="Email: "
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:paddingStart="16dp"
                 android:textColor="@color/black"/>
 
             <EditText
-                android:id="@+id/emailAddText"
+                android:id="@+id/emailEdit"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="8dp"
-                android:layout_marginBottom="10dp"
                 android:inputType="textEmailAddress"
+                android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:background="@drawable/edittext_border"/>
 
+            <!-- Contact setting -->
             <TextView
-                android:id="@+id/contactAdd"
+                android:id="@+id/contactText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="Contact:"
-                android:textSize="30sp"
+                android:text="Contact: "
+                android:textSize="25sp"
                 android:textStyle="bold"
                 android:paddingStart="16dp"
                 android:textColor="@color/black"/>
 
             <EditText
-                android:id="@+id/contactAddText"
+                android:id="@+id/contactEdit"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:padding="8dp"
-                android:layout_marginBottom="10dp"
                 android:inputType="number"
+                android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:background="@drawable/edittext_border"/>
 
             <Button
-                android:id="@+id/addMemButton"
+                android:id="@+id/saveMembers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/add"
-                android:backgroundTint="@color/brown"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center_horizontal"
+                android:text="Save"
+                app:cornerRadius="20dp"
+                android:backgroundTint="@color/green"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/confirmDeleteMem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/delete"
+                app:cornerRadius="20dp"
+                android:backgroundTint="@color/red"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
