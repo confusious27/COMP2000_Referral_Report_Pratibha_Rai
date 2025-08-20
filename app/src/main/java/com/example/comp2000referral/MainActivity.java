@@ -163,4 +163,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void logout() {
+        bottomNavigationView.setVisibility(View.GONE);
+
+        // clears back stack to remove previous fragments
+        getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
+
+        // goes back to login
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragmentContainer, new LoginFragment())
+                .commit();
+    }
+
+
 }

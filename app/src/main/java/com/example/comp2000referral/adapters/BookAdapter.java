@@ -20,7 +20,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
      Context context;
      List<Book> books;
      boolean isAdmin;
-    BookClickListener listener;
+     BookClickListener listener;
 
     public BookAdapter(Context context, List<Book> books, boolean isAdmin, BookClickListener listener) { //is admin will check user type and lister will handle the clicks in the fragment
         this.context = context;
@@ -73,5 +73,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public interface BookClickListener {
         void onBookClick(Book book);
     }
+
+    // updates books when admin adds
+    public void updateBooks(List<Book> newBooks) {
+        this.books.clear();
+        this.books.addAll(newBooks);
+        notifyDataSetChanged();
+    }
+
 
 }

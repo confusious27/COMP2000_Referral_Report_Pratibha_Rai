@@ -1,9 +1,11 @@
 package com.example.comp2000referral;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +21,7 @@ public class AdminRequestsFragment extends Fragment {
     RecyclerView recyclerView;
     AdminRequestAdapter adapter;
     List<Request> requestList;
+    Button logout;
 
     public AdminRequestsFragment() {
         //empty; purpose is so android can restore fragments
@@ -46,8 +49,20 @@ public class AdminRequestsFragment extends Fragment {
         adapter = new AdminRequestAdapter(getContext(), requestList);
         recyclerView.setAdapter(adapter);
 
-        return view;
+        // log out button
+        logout = view.findViewById(R.id.logOutAdmin);
+        logout.setOnClickListener(v -> {
+            // clears saved login info
+            requireActivity().getSharedPreferences("test_users", getContext().MODE_PRIVATE)
+                    .edit()
+                    .clear()
+                    .apply();
 
+            // navigates back to login
+            ((MainActivity) requireActivity()).logout();
+        });
+
+        return view;
     }
 
     // refreshes list after performing action

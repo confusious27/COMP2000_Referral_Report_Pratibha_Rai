@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/requestItems"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -16,41 +17,40 @@
         <!-- Requests -->
         <TextView
             android:id="@+id/requestBooks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="266dp"
+            android:layout_height="36dp"
             android:text="Book Title"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/requestedBy"
+            app:layout_constraintEnd_toStartOf="@+id/statusAdmin"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Requested by -->
+        <TextView
+            android:id="@+id/requestedBy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Requested by:"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/statusAdmin"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/requestedBy"/>
+            app:layout_constraintTop_toBottomOf="@+id/requestBooks"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <!-- Requested by -->
-    <TextView
-        android:id="@+id/requestedBy"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Requested by:"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/statusAdmin"
-        app:layout_constraintTop_toBottomOf="@+id/requestBooks"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-    <TextView
-        android:id="@+id/statusAdmin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Status"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/requestBooks"
-        app:layout_constraintBottom_toBottomOf="@id/requestedBy"
-        />
+        <TextView
+            android:id="@+id/statusAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/requestBooks"
+            app:layout_constraintBottom_toBottomOf="@id/requestedBy" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

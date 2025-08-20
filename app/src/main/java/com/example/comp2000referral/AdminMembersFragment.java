@@ -48,12 +48,13 @@ public class AdminMembersFragment extends Fragment {
 
         // passes the click listener to the adapter
         adapter = new MemberAdapter(getContext(), memberList, member -> {
-            EditMembersFragment fragment = EditMembersFragment.newInstance(
+            MemberDetailFragment fragment = MemberDetailFragment.newInstance(
                     member.getUsername(),
                     member.getFirstname(),
                     member.getLastname(),
                     member.getEmail(),
-                    member.getContact()
+                    member.getContact(),
+                    member.getMembershipEndDate()
             );
 
             requireActivity().getSupportFragmentManager()

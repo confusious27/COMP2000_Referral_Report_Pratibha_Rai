@@ -1,18 +1,18 @@
 package com.example.comp2000referral;
 
 public class UserRequest {
-    private String bookTitleUser;
+    private String bookTitle;
     private String status;
     private String requestedBy; // to extract username
 
     public UserRequest(String bookTitle, String status, String requestedBy) {
-        this.bookTitleUser = bookTitle;
-        this.status = "Pending"; // default
+        this.bookTitle = bookTitle;
+        this.status = status;
         this.requestedBy = requestedBy;
     }
 
     public String getBookTitle() {
-        return bookTitleUser;
+        return bookTitle;
     }
 
     public String getStatus() {

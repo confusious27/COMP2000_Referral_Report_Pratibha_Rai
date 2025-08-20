@@ -19,7 +19,12 @@ public class Book {
         return author;
     }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() { return description; }
+
+    // gets info (For updating)
+    public void setTitle(String title) { this.title = title; }
+
+    public void setAuthor(String author) { this.author = author; }
+
+    public void setDescription(String description) { this.description = description; }
 }

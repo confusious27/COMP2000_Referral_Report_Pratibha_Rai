@@ -41,7 +41,7 @@ public class BookDetailFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        titleView = view.findViewById(R.id.bookTitleUser);
+        titleView = view.findViewById(R.id.bookTitle);
         authorView = view.findViewById(R.id.bookAuthorUser);
         descriptionView = view.findViewById(R.id.bookDescriptionUser);
         requestButton = view.findViewById(R.id.requestButton);

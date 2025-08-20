@@ -36,11 +36,7 @@ public class UserProfileFragment extends Fragment {
                     .apply();
 
             // navigates back to login
-            requireActivity()
-                    .getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragmentContainer, new LoginFragment())
-                    .commit();
+            ((MainActivity) requireActivity()).logout();
         });
     }
 

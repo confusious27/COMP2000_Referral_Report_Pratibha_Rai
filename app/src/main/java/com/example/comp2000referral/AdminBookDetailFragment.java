@@ -12,6 +12,10 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.comp2000referral.models.Book;
+
+import java.util.List;
+
 public class AdminBookDetailFragment extends Fragment{
     TextView titleView;
     TextView authorView;
@@ -64,5 +68,45 @@ public class AdminBookDetailFragment extends Fragment{
                     .addToBackStack(null)
                     .commit();
         });
+
+        // for updating books
+        getParentFragmentManager().setFragmentResultListener("updateBookKey", this, (key, bundle) -> {
+            String updatedTitle = bundle.getString("updatedTitle");
+            String updatedAuthor = bundle.getString("updatedAuthor");
+            String updatedDescription = bundle.getString("updatedDescription");
+
+            String originalTitle = getArguments().getString("title");
+
+            List<Book> books = BookManager.getBooks(getContext());
+            for (Book book : books) {
+                if (book.getTitle().equals(originalTitle)) {
+                    book.setTitle(updatedTitle);
+                    book.setAuthor(updatedAuthor);
+                    book.setDescription(updatedDescription);
+                    break;
+                }
+            }
+
+            BookManager.updateBooks(getContext(), books);
+
+            // Update the displayed data
+            titleView.setText(updatedTitle);
+            authorView.setText(updatedAuthor);
+            descriptionView.setText(updatedDescription);
+
+            // Update the arguments so subsequent edits use the updated title
+            getArguments().putString("title", updatedTitle);
+        });
+
+
+        getParentFragmentManager().setFragmentResultListener("deleteBookKey", this, (key, bundle) -> {
+            String deletedTitle = bundle.getString("deletedTitle");
+
+            List<Book> books = BookManager.getBooks(getContext());
+            books.removeIf(book -> book.getTitle().equals(deletedTitle));
+            BookManager.updateBooks(getContext(), books);
+        });
+
+
     }
 }

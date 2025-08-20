@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+// ADMIN
 public class EditBookFragment extends Fragment {
 
     EditText titleView;
@@ -53,12 +54,18 @@ public class EditBookFragment extends Fragment {
         }
 
         confirmButtAdmin.setOnClickListener(v -> {
+
+            String updatedTitle = titleView.getText().toString();
+            String updatedAuthor = authorView.getText().toString();
+            String updatedDescription = descriptionView.getText().toString();
+
             Toast.makeText(getContext(), "Book updated!", Toast.LENGTH_SHORT).show();
             // send results back to previous fragment
             Bundle result = new Bundle();
-            result.putString("updatedTitle", titleView.getText().toString());
+            result.putString("updatedTitle", updatedTitle);
+            result.putString("updatedAuthor", updatedAuthor);
+            result.putString("updatedDescription", updatedDescription);
             getParentFragmentManager().setFragmentResult("updateBookKey", result);
-
             // returns to previous screen
             if (getActivity() != null) {
                 getActivity().getSupportFragmentManager().popBackStack();

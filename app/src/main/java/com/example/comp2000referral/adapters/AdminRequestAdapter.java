@@ -48,8 +48,7 @@ public class AdminRequestAdapter extends RecyclerView.Adapter<AdminRequestAdapte
 
     @Override
     public void onBindViewHolder(AdminRequestAdapter.ViewHolder holder, int position) {
-        final Request request = requestList.get(position);
-
+        Request request = requestList.get(position);
         holder.bookTitle.setText(request.getBookTitle());
         holder.requester.setText("Requested by: " + request.getRequesterName());
         holder.statusAdmin.setText(request.getStatus()); // will show the status of the request

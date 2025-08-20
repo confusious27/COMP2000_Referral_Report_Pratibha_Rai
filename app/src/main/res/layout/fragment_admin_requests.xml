@@ -4,15 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/adminRequest"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <!-- Scroll view for the books -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/adminRequestsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="9dp"
         android:clipToPadding="false"
-        android:padding="9dp"
+        android:padding="20dp"
         tools:listitem="@layout/request_items" />
+
+    <!-- Log Out Button -->
+    <Button
+        android:id="@+id/logOutAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/logout"
+        android:backgroundTint="@color/red"/>
+
 
 </RelativeLayout>

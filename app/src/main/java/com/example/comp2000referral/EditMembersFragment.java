@@ -1,6 +1,7 @@
 package com.example.comp2000referral;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,14 +23,10 @@ public class EditMembersFragment extends Fragment {
     Button confirmButton;
     Button confirmDeleteMem;
     String username; // comes from previous fragment
-
-    public EditMembersFragment() {
-        // Required empty public constructor
-    }
-
+    String membership;
 
     // passes the details from the last screen
-    public static EditMembersFragment newInstance(String username, String firstName, String lastName, String email, String contact) {
+    public static EditMembersFragment newInstance(String username, String firstName, String lastName, String email, String contact, String membership) {
         EditMembersFragment fragment = new EditMembersFragment();
         Bundle args = new Bundle();
         args.putString("username", username);
@@ -37,25 +34,13 @@ public class EditMembersFragment extends Fragment {
         args.putString("lastname", lastName);
         args.putString("email", email);
         args.putString("contact", contact);
+        args.putString("membership_end_date", membership);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            firstNameEdit.setText(getArguments().getString("firstname"));
-            lastNameEdit.setText(getArguments().getString("lastname"));
-            emailEdit.setText(getArguments().getString("email"));
-            contactEdit.setText(getArguments().getString("contact"));
-        } else {
-            loadMemberDetails(); // uses API if the details from previous screen doesn't pass over
-        }
-    }
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_edit_members, container, false);
 
         firstNameEdit = view.findViewById(R.id.firstName);
@@ -65,11 +50,20 @@ public class EditMembersFragment extends Fragment {
         confirmButton = view.findViewById(R.id.saveMembers);
         confirmDeleteMem = view.findViewById(R.id.confirmDeleteMem);
 
+        if (getArguments() != null) {
+            username = getArguments().getString("username");
+            membership = getArguments().getString("membership_end_date");
+
+            firstNameEdit.setText(getArguments().getString("firstname"));
+            lastNameEdit.setText(getArguments().getString("lastname"));
+            emailEdit.setText(getArguments().getString("email"));
+            contactEdit.setText(getArguments().getString("contact"));
+        }
+
+        // fetch dem details for the date pls
         loadMemberDetails();
 
-        // confirm update
         confirmButton.setOnClickListener(v -> updateMember());
-        //delete
         confirmDeleteMem.setOnClickListener(v -> deleteMember());
 
         return view;
@@ -86,6 +80,12 @@ public class EditMembersFragment extends Fragment {
                     lastNameEdit.setText(obj.getString("lastname"));
                     emailEdit.setText(obj.getString("email"));
                     contactEdit.setText(obj.getString("contact"));
+
+                    // saves the date to give back to update :3
+                    requireActivity().runOnUiThread(() -> {
+                        firstNameEdit.setTag(obj.optString("membership_end_date"));
+                    });
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -98,28 +98,23 @@ public class EditMembersFragment extends Fragment {
     }
 
     private void updateMember() {
-        String firstName = firstNameEdit.getText().toString().trim();
-        String lastName = lastNameEdit.getText().toString().trim();
-        String email = emailEdit.getText().toString().trim();
-        String contact = contactEdit.getText().toString().trim();
-
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || contact.isEmpty()) {
-            Toast.makeText(getContext(), "All fields are required", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         try {
             JSONObject body = new JSONObject();
-            body.put("firstname", firstName);
-            body.put("lastname", lastName);
-            body.put("email", email);
-            body.put("contact", contact);
+            body.put("firstname", firstNameEdit.getText().toString().trim());
+            body.put("lastname", lastNameEdit.getText().toString().trim());
+            body.put("email", emailEdit.getText().toString().trim());
+            body.put("contact", contactEdit.getText().toString().trim());
+
+            // locked >:)
+            body.put("username", username);
+            body.put("membership_end_date", membership);
+
+            Log.d("DEBUG", "Update Body: " + body.toString());
 
             APIClient.updateMember(username, body, new APIClient.ApiCallback() {
                 @Override
                 public void onSuccess(String result) {
                     Toast.makeText(getContext(), "Updated successfully!", Toast.LENGTH_SHORT).show();
-                    // go back
                     if (getActivity() != null) {
                         getActivity().getSupportFragmentManager().popBackStack();
                     }
@@ -130,7 +125,6 @@ public class EditMembersFragment extends Fragment {
                     Toast.makeText(getContext(), "Update failed", Toast.LENGTH_SHORT).show();
                 }
             });
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -149,6 +143,7 @@ public class EditMembersFragment extends Fragment {
 
             @Override
             public void onError(Exception e) {
+                Log.e("DEBUG", "Delete failed", e);
                 Toast.makeText(getContext(), "Delete failed", Toast.LENGTH_SHORT).show();
             }
         });

@@ -48,16 +48,14 @@ public class RequestDetailFragment extends Fragment {
         }
 
         // buttons update status
-        acceptButton.setOnClickListener(v -> {
-            issueBookToMember(currentRequest); // calling API to issue the book
-            updateRequestStatus("Accepted"); // updates local manager too
-        });
+        acceptButton.setOnClickListener(v -> updateRequestStatus("Accepted")); // updates local manager too
         declineButton.setOnClickListener(v -> updateRequestStatus("Declined"));
 
         return view;
     }
 
     private void updateRequestStatus(String status) {
+        //gotta tell the local manager first
         UserRequestManager manager = new UserRequestManager(requireContext());
         List<UserRequest> allRequests = manager.getRequests();
 
@@ -71,7 +69,7 @@ public class RequestDetailFragment extends Fragment {
 
         manager.updateRequests(allRequests);
 
-        // for the different actions for the buttons
+        // NOW we tell the regional manager
         if (status.equals("Accepted")) {
             issueBookToMember(currentRequest);
         } else if (status.equals("Declined")) {
@@ -82,8 +80,10 @@ public class RequestDetailFragment extends Fragment {
         sendNotification("Request " + status, "You " + status.toLowerCase() + " the request for " + currentRequest.getBookTitle());
 
         // goes back to previous page
-        getParentFragmentManager().popBackStack();
-
+        getParentFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragmentContainer, new AdminRequestsFragment())  // changes to book list directly bc deleted
+                .commit();
     }
 
     // notifications

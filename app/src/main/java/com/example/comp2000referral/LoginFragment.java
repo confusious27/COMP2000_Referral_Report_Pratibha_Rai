@@ -1,5 +1,6 @@
 package com.example.comp2000referral;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -61,7 +62,9 @@ public class LoginFragment extends Fragment {
                 return;
             }
 
-            SharedPreferences prefs =  requireContext().getSharedPreferences("test_users", getContext().MODE_PRIVATE);
+            SharedPreferences prefs = requireContext().getSharedPreferences("test_users", getContext().MODE_PRIVATE);
+            prefs.edit().putString("logged_in_user", usernameInput).apply(); // save the username for the requests
+
             String storedPassword = prefs.getString(usernameInput, null);
             String role = prefs.getString(usernameInput + "_role", "user");
 
@@ -94,6 +97,7 @@ public class LoginFragment extends Fragment {
             } else {
                 Toast.makeText(getContext(), "Invalid credentials", Toast.LENGTH_SHORT).show();
             }
+
         });
 
 //            // testing

@@ -41,16 +41,39 @@ public class UserBookFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_user_books, container, false);
     }
-        @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.booksView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        bookList = new ArrayList<>();
+        // gets books from BookManager
+        List<Book> books = BookManager.getBooks(requireContext());
 
-        adapter = new BookAdapter(getContext(), bookList, false, this::onBookClicked);
+        // passes into adapter
+        adapter = new BookAdapter(getContext(), books, false, book -> {
+            BookDetailFragment fragment = BookDetailFragment.newInstance(
+                    book.getTitle(),
+                    book.getAuthor(),
+                    book.getDescription()
+            );
+
+            requireActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragmentContainer, fragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
+
         recyclerView.setAdapter(adapter);
-
     }
- }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        List<Book> updatedBooks = BookManager.getBooks(requireContext());
+        adapter.updateBooks(updatedBooks); // add this helper in your adapter
+    }
+
+}

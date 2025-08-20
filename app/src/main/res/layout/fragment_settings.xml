@@ -5,61 +5,140 @@
     android:id="@+id/settings"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     android:orientation="vertical"
     tools:context=".SettingsFragment">
 
 <!-- USER -->
 
-    <!-- Header -->
-    <TextView
-        android:id="@+id/settingHeader"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/details"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:padding="16dp"
-        android:textColor="@color/black"/>
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/settingHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/details"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:textColor="@color/black"/>
+
+<!--    &lt;!&ndash; Username setting &ndash;&gt;-->
+<!--        <TextView-->
+<!--            android:id="@+id/usernameText"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:text="Username:"-->
+<!--            android:textSize="24sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:paddingStart="16dp"-->
+<!--            android:textColor="@color/black"/>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/userNameSet"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="50dp"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:padding="8dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textColorHighlight="@color/cardview_dark_background"-->
+<!--            android:background="@drawable/edittext_border"/>-->
 
     <!-- First Name setting -->
-    <TextView
-        android:id="@+id/firstNameText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/first"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingStart="16dp"
-        android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/first"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:textColor="@color/black"/>
 
-    <EditText
-        android:id="@+id/firstName"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:inputType="textPersonName"
-        android:padding="8dp"
-        android:textColor="@color/black"
-        android:textColorHighlight="@color/cardview_dark_background"
-        android:background="@drawable/edittext_border"/>
+        <EditText
+            android:id="@+id/firstName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:background="@drawable/edittext_border"/>
 
     <!-- Last Name setting -->
-    <TextView
-        android:id="@+id/lastNameText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="@string/last"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:paddingStart="16dp"
-        android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/lastNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/last"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/lastName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:background="@drawable/edittext_border"/>
+
+    <!-- Email setting -->
+        <TextView
+            android:id="@+id/emailTextSet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Email:"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/emailSet"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textColor="@color/black"
+            android:textColorHighlight="@color/cardview_dark_background"
+            android:background="@drawable/edittext_border"/>
+
+    <!-- Contact setting -->
+        <TextView
+            android:id="@+id/contactText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="Contact:"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/contactSet"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:inputType="textPersonName"
@@ -122,5 +201,9 @@
             app:layout_constraintTop_toTopOf="@id/pushNotifLabel"
             app:layout_constraintBottom_toBottomOf="@id/pushNotifLabel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
