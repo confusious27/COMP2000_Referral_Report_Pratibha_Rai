@@ -21,9 +21,9 @@ This repository contains the android application developed for COMP2000. The mob
 1. Please make sure you have Android Studio downloaded _(Particularly Android Studio Ladybug)_
 2. Clone the repository
 ```
-git clone <your-repo-url>
-cd <project-folder>
+git clone <repo-url>
 ```
+3. Open project folder in Android Studio to compile
 ---
 
 ### Notes
