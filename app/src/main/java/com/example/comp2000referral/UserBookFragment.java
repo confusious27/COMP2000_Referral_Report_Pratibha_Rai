@@ -19,7 +19,7 @@ public class UserBookFragment extends Fragment {
 
     RecyclerView recyclerView;
     BookAdapter adapter;
-    List<Book> bookList;
+    LibraryDatabase db;
 
     public UserBookFragment() {
         // Required empty public constructor
@@ -48,10 +48,9 @@ public class UserBookFragment extends Fragment {
         recyclerView = view.findViewById(R.id.booksView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // gets books from BookManager
-        List<Book> books = BookManager.getBooks(requireContext());
+        db = new LibraryDatabase(requireContext());
+        List<Book> books = db.getAllBooks(); // fetch all da books from SQLite
 
-        // passes into adapter
         adapter = new BookAdapter(getContext(), books, false, book -> {
             BookDetailFragment fragment = BookDetailFragment.newInstance(
                     book.getTitle(),
@@ -72,8 +71,9 @@ public class UserBookFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        List<Book> updatedBooks = BookManager.getBooks(requireContext());
-        adapter.updateBooks(updatedBooks); // add this helper in your adapter
+        // refreshes the list
+        List<Book> updatedBooks = db.getAllBooks();
+        adapter.setBooks(updatedBooks);
     }
 
 }

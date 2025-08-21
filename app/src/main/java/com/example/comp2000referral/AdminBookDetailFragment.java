@@ -77,17 +77,16 @@ public class AdminBookDetailFragment extends Fragment{
 
             String originalTitle = getArguments().getString("title");
 
-            List<Book> books = BookManager.getBooks(getContext());
-            for (Book book : books) {
-                if (book.getTitle().equals(originalTitle)) {
-                    book.setTitle(updatedTitle);
-                    book.setAuthor(updatedAuthor);
-                    book.setDescription(updatedDescription);
-                    break;
-                }
-            }
+            // get data from SQLite
+            LibraryDatabase db = new LibraryDatabase(getContext());
+            Book bookToUpdate = db.getAllBooks().stream()
+                    .filter(b -> b.getTitle().equals(originalTitle))
+                    .findFirst()
+                    .orElse(null);
 
-            BookManager.updateBooks(getContext(), books);
+            if (bookToUpdate != null) {
+                db.updateBook(bookToUpdate.getId(), updatedTitle, updatedAuthor, updatedDescription);
+            }
 
             // Update the displayed data
             titleView.setText(updatedTitle);
@@ -102,11 +101,15 @@ public class AdminBookDetailFragment extends Fragment{
         getParentFragmentManager().setFragmentResultListener("deleteBookKey", this, (key, bundle) -> {
             String deletedTitle = bundle.getString("deletedTitle");
 
-            List<Book> books = BookManager.getBooks(getContext());
-            books.removeIf(book -> book.getTitle().equals(deletedTitle));
-            BookManager.updateBooks(getContext(), books);
+            LibraryDatabase db = new LibraryDatabase(getContext());
+            Book bookToDelete = db.getAllBooks().stream()
+                    .filter(b -> b.getTitle().equals(deletedTitle))
+                    .findFirst()
+                    .orElse(null);
+
+            if (bookToDelete != null) {
+                db.deleteBook(bookToDelete.getId());
+            }
         });
-
-
     }
 }

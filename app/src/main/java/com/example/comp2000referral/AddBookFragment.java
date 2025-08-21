@@ -44,8 +44,8 @@ public class AddBookFragment extends Fragment {
                 Toast.makeText(getContext(), "All fields are required", Toast.LENGTH_SHORT).show();
             } else {
                 // saves new book
-                Book newBook = new Book(title, author, description);
-                BookManager.addBook(getContext(), newBook);
+                LibraryDatabase db = new LibraryDatabase(getContext());
+                db.insertBook(title, author, description);
                 Toast.makeText(getContext(), "Book added successfully!", Toast.LENGTH_SHORT).show();
 
                 // returns to previous screen

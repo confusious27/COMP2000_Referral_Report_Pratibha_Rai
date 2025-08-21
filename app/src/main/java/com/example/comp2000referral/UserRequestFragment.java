@@ -19,7 +19,9 @@ public class UserRequestFragment extends Fragment {
     UserRequestAdapter adapter;
     List<UserRequest> requestList;
 
-    public UserRequestFragment() {}
+    public UserRequestFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

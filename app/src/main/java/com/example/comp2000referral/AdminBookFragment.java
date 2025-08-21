@@ -35,17 +35,21 @@ public class AdminBookFragment extends Fragment {
         recyclerView = view.findViewById(R.id.booksView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // loads books from SharedPreferences
-        bookList = BookManager.getBooks(getContext());
+        // loads books from SQLite
+        LibraryDatabase db = new LibraryDatabase(getContext());
+        bookList = db.getAllBooks();
 
-        // ✅ Seed sample books if list is empty (first launch)
+
+        // sample books if list is empty (first launch)
         if (bookList.isEmpty()) {
-            bookList.add(new Book("1984", "George Orwell", "A dystopian novel about surveillance."));
-            bookList.add(new Book("Brave New World", "Aldous Huxley", "A futuristic society based on control."));
-            bookList.add(new Book("Fahrenheit 451", "Ray Bradbury", "A world where books are outlawed."));
-            bookList.add(new Book("Omniscient Reader's Viewpoint", "SingShong", "Kim Dokja finds himself inside his favourite web novel."));
-            BookManager.updateBooks(getContext(), bookList);
+            db.insertBook("1984", "George Orwell", "A dystopian novel about surveillance.");
+            db.insertBook("Brave New World", "Aldous Huxley", "A futuristic society based on control.");
+            db.insertBook("Fahrenheit 451", "Ray Bradbury", "A world where books are outlawed.");
+            db.insertBook("Omniscient Reader's Viewpoint", "SingShong", "Kim Dokja finds himself inside his favourite web novel.");
+
+            bookList = db.getAllBooks(); // reload after insertion
         }
+
 
         // passes the click listener to the , also helps with the admin check (so user cannot edit/delete)
         adapter = new BookAdapter(getContext(), bookList, true, book -> {

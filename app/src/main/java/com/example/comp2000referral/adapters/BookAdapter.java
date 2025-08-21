@@ -15,53 +15,41 @@ import java.util.List;
 
 // recyclerview adapter
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
+    private List<Book> books;
+    private OnBookClickListener listener;
+    private Context context;
+    private boolean isAdmin;
 
-    // connects to book.java
-     Context context;
-     List<Book> books;
-     boolean isAdmin;
-     BookClickListener listener;
+    public interface OnBookClickListener {
+        void onBookClicked(Book book);
+    }
 
-    public BookAdapter(Context context, List<Book> books, boolean isAdmin, BookClickListener listener) { //is admin will check user type and lister will handle the clicks in the fragment
+    public BookAdapter(Context context, List<Book> books, boolean isAdmin, OnBookClickListener listener) {
         this.context = context;
         this.books = books;
         this.isAdmin = isAdmin;
         this.listener = listener;
     }
 
-    public static class BookViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView;
-        TextView authorTextView;
-        TextView descTextView;
-
-        public BookViewHolder(View itemView) {
-            super(itemView);
-            titleTextView = itemView.findViewById(R.id.bookTitle);
-            authorTextView = itemView.findViewById(R.id.bookAuthor);
-            descTextView = itemView.findViewById(R.id.bookDesc);
-        }
+    public void setBooks(List<Book> books) {
+        this.books = books;
+        notifyDataSetChanged();
     }
 
     @Override
     public BookViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.book_items, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.book_items, parent,false);
         return new BookViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(BookViewHolder holder, int position) {
-        final Book book = books.get(position);
-        holder.titleTextView.setText(book.getTitle());
-        holder.authorTextView.setText(book.getAuthor());
-        holder.descTextView.setText(book.getDescription());
+        Book book = books.get(position);
+        holder.title.setText(book.getTitle());
+        holder.author.setText(book.getAuthor());
+        holder.description.setText(book.getDescription());
 
-        // calls listener when item is clicked
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onBookClick(book);
-            }
-        });
-
+        holder.itemView.setOnClickListener(v -> listener.onBookClicked(book));
     }
 
     @Override
@@ -69,17 +57,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         return books.size();
     }
 
-    // this helps the adapter not decide what happens, just notifies
-    public interface BookClickListener {
-        void onBookClick(Book book);
+    static class BookViewHolder extends RecyclerView.ViewHolder {
+        TextView title, author, description;
+
+        public BookViewHolder(View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.bookTitle);
+            author = itemView.findViewById(R.id.bookAuthor);
+            description = itemView.findViewById(R.id.bookDesc);
+        }
     }
-
-    // updates books when admin adds
-    public void updateBooks(List<Book> newBooks) {
-        this.books.clear();
-        this.books.addAll(newBooks);
-        notifyDataSetChanged();
-    }
-
-
 }
