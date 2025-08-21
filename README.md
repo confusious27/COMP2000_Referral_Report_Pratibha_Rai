@@ -12,13 +12,13 @@ This repository contains the android application developed for COMP2000. The mob
 - Admins can approve or decline requests
 
 ## Technologies
-Android Studio
-SQLite
-JSON
-Gradle
+- Android Studio
+- SQLite
+- JSON
+- Gradle
 
 ### How to Run the Project
-1. Please make sure you have Android Studio downloaded (Particularly Android Studio Ladybug)
+1. Please make sure you have Android Studio downloaded _(Particularly Android Studio Ladybug)_
 2. Clone the repository
 ```
 git clone <your-repo-url>
